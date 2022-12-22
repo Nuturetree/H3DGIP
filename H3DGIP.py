@@ -17,7 +17,7 @@ def preparing_HiCPro_file(h3dgipdir, genome, enzyme, input_dir):
     build_index_order = "bowtie2-build -f {0} --threads 4".format(genomeName)
     print(ln_order, file=fp)
     print(build_index_order, file=fp)
-    # 4、change configure file
+    # 4、change config file
     cp_order = "cp {}/utils/HiC-Pro.config .".format(h3dgipdir)
     tmpDir = os.getcwd()
     workDir = tmpDir.replace("/", "\/")
@@ -121,10 +121,10 @@ def preparing_FitHiC_file(h3dgipdir, filename, resolution):
 
 # hichipper
 def preparing_hichipper_file():
-    # build the configure file of hichipper
+    # build the config file of hichipper
     import os
     workDir = os.getcwd() 
-    fy = open('./hichipper/hichipper_configure.yaml', 'w')
+    fy = open('./hichipper/hichipper_config.yaml', 'w')
     print("peaks:", file=fy)
     print("  - COMBINED,ALL", file=fy)
     print("resfrags:", file=fy)
@@ -135,7 +135,7 @@ def preparing_hichipper_file():
     # build the run file of hichipper
     output_file = "./hichipper/run_hichipper.sh"
     fp = open(output_file, "w")
-    hichipper_order = "hichipper --out hichipper_result hichipper_configure.yaml"
+    hichipper_order = "hichipper --out hichipper_result hichipper_config.yaml"
     print(hichipper_order, file=fp)
     fp.close()
 
@@ -143,7 +143,7 @@ def preparing_hichipper_file():
 def preparing_FitHiChIP_file(h3dgipdir, name):
     output_file = "./FitHiChIP/run_FitHiChIP.sh"
     fp = open(output_file, "w")
-    # configure file
+    # config file
     cp_order = "cp {}/utils/configfile_BiasCorrection_ICEBias ./".format(h3dgipdir)
     sed_order1 = "sed -i 's/ValidPairs/..\/HiCPro\/hic_results\/data\/{0}\/{0}.allValidPairs/g' configfile_BiasCorrection_ICEBias".format(name)
     sed_order2 = "sed -i 's/chromSize/..\/HiCPro\/HiC-Pro_chromosome_size.txt/g' configfile_BiasCorrection_ICEBias"

@@ -132,6 +132,7 @@ More parameter details of FitHiChIP can be found in https://ay-lab.github.io/Fit
 ``` shell
 
 ## running hichipper
-hichipper --out hichipper_result hichipper_configure.yaml
+hichipper --out hichipper_result hichipper_config.yaml
 ```
 More parameter details of hichipper can be found in https://hichipper.readthedocs.io/en/latest/
+

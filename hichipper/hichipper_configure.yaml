@@ -1,0 +1,6 @@
+peaks:
+  - COMBINED,ALL
+resfrags:
+  - /public/home/xhhuang/biodate/bio_protocol/H3DGIP2/HiCPro/HiC-Pro_enzyme_fragments.bed
+hicpro_output:
+  - /public/home/xhhuang/biodate/bio_protocol/H3DGIP2/HiCPro_result/hic_reuslts
